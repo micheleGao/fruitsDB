@@ -29,11 +29,21 @@ app.use(express.urlencoded({extended:true}));
         res.json(movies);
     });
     app.get('/movies/:id', (req, res)=>{
-        res.json(movies);
+        // try{
+        //     const singleMovie = findById(
+        //         req.params.id,   
+        //     );
+        //     res.json(singleMovie)
+        // }catch (error){
+        //     console.log(error)
+        // }
+        const singleMovie = res.json(req.params.id)
+        res.json(singleMovie)
+       
     })
-    app.post('/movies', (req, res)=>{
-        res.json(`${req.params.body}`)
-    })
+    // app.post('/movies', (req, res)=>{
+    //     res.json(`${req.params.body}`)
+    // })
     app.listen(PORT, ()=>{
         console.log('app listening on port:' + PORT);
     })
